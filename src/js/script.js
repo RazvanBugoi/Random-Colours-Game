@@ -1,5 +1,6 @@
 let colourCode = document.getElementById('colour-code');
 let boxes = document.getElementById('allBoxes').getElementsByClassName('box');
+let message = document.getElementsByClassName('message');
 let winnerNumber;
 let colours = [];
 
@@ -8,9 +9,9 @@ for (let i = 0; i < boxes.length; i += 1) {
     boxes[i].style.background = `rgb(${getColourCode()},${getColourCode()},${getColourCode()})`;
     boxes[i].addEventListener('click', function (event) {
         if (this.style.background == winnerNumber.style.background) {
-            alert('you won!');
+            message[i].innerHTML = 'you won';
         } else {
-            alert('Wrong box :( Try again.')
+            message[i].innerHTML = 'you lost';
         }
     })
 }
