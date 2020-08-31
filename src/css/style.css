@@ -2,7 +2,8 @@ h1 {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
-#box1, #box2, #box3, #box4, #box5, #box6 {
+
+.box {
     width: 100px;
     height: 100px;
     margin: 10px;
