@@ -1,6 +1,7 @@
 let colourCode = document.getElementById('colour-code');
 let boxes = document.getElementById('allBoxes').getElementsByClassName('box');
 let message = document.getElementsByClassName('message');
+let btn = document.getElementById('reset');
 let winnerNumber;
 let colours = [];
 
@@ -35,5 +36,7 @@ function getColourCode() {
     return Math.floor(Math.random() * 255);
 }
 
-
+reset.addEventListener('click', function (event) {
+    location.reload();
+});
 
