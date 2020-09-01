@@ -11,12 +11,17 @@ for (let i = 0; i < boxes.length; i += 1) {
     boxes[i].addEventListener('click', function (event) {
         if (this.style.background == winnerNumber.style.background) {
             message[i].innerHTML = 'you won';
+            message[i].onclick = setTimeout(location.reload, 2000);
         } else {
             message[i].innerHTML = 'you lost';
+            message[i].onclick = setTimeout(location.reload, 2000);
         }
     })
 }
 
+function refresh() {
+    let timeout = window.setTimeout(location.reload, 2000);
+}
 
 function winnerBox() {
     let winnerNum = Math.round(Math.random() * 5);
