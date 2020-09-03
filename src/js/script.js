@@ -11,11 +11,11 @@ for (let i = 0; i < boxes.length; i += 1) {
     boxes[i].style.background = `rgb(${getColourCode()},${getColourCode()},${getColourCode()})`;
     boxes[i].addEventListener('click', function (event) {
         if (this.style.background == winnerNumber.style.background) {
-            message.innerHTML = 'you won';
+            message.innerHTML = 'You won. Congratulations!';
             buttons.forEach((el) => el.setAttribute('disabled', ''));
             buttons[6].removeAttribute('disabled');
         } else {
-            message.innerHTML = 'you lost';
+            message.innerHTML = 'You lost. Try again';
             buttons.forEach((el) => el.setAttribute('disabled', ''));
             buttons[6].removeAttribute('disabled');
         }
