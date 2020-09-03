@@ -21,10 +21,6 @@ for (let i = 0; i < boxes.length; i += 1) {
     })
 }
 
-function refresh() {
-    let timeout = window.setTimeout(location.reload, 2000);
-}
-
 function winnerBox() {
     let winnerNum = Math.round(Math.random() * 5);
     winnerNumber = boxes[winnerNum];
