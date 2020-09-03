@@ -1,7 +1,8 @@
 let colourCode = document.getElementById('colour-code');
 let boxes = document.getElementById('allBoxes').getElementsByClassName('box');
-let message = document.getElementsByClassName('message');
+let message = document.getElementById('message');
 let btn = document.getElementById('reset');
+let buttons = document.querySelectorAll('button');
 let winnerNumber;
 let colours = [];
 
@@ -10,11 +11,13 @@ for (let i = 0; i < boxes.length; i += 1) {
     boxes[i].style.background = `rgb(${getColourCode()},${getColourCode()},${getColourCode()})`;
     boxes[i].addEventListener('click', function (event) {
         if (this.style.background == winnerNumber.style.background) {
-            message[i].innerHTML = 'you won';
-            message[i].onclick = setTimeout(location.reload, 2000);
+            message.innerHTML = 'you won';
+            buttons.forEach((el) => el.setAttribute('disabled', ''));
+            buttons[6].removeAttribute('disabled');
         } else {
-            message[i].innerHTML = 'you lost';
-            message[i].onclick = setTimeout(location.reload, 2000);
+            message.innerHTML = 'you lost';
+            buttons.forEach((el) => el.setAttribute('disabled', ''));
+            buttons[6].removeAttribute('disabled');
         }
     })
 }
