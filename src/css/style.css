@@ -31,3 +31,12 @@ h3 {
     margin: 40px auto;
     text-align: center;
 }
+
+#reset {
+    width: 75px;
+    height: 35px;
+}
+
+#reset:hover {
+    background-color: cyan;
+}
