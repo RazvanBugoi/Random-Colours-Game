@@ -8,13 +8,15 @@ let colours = [];
 
 for (let i = 0; i < boxes.length; i += 1) {
     boxes[i].style.background = `rgb(${getColourCode()},${getColourCode()},${getColourCode()})`;
-    boxes[i].addEventListener('click', function (event) {
+    boxes[i].addEventListener('click', function(event) {
         if (this.style.background == winnerNumber.style.background) {
             message.innerHTML = 'You won. Congratulations!';
+            this.classList.add('animate__animated', 'animate__shakeY');
             buttons.forEach((el) => el.setAttribute('disabled', ''));
             buttons[6].removeAttribute('disabled');
         } else {
             message.innerHTML = 'You lost. Try again';
+            this.classList.add('animate__animated', 'animate__shakeX');
             buttons.forEach((el) => el.setAttribute('disabled', ''));
             buttons[6].removeAttribute('disabled');
         }
@@ -38,7 +40,6 @@ function getColourCode() {
     return Math.floor(Math.random() * 255);
 }
 
-reset.addEventListener('click', function (event) {
+reset.addEventListener('click', function(event) {
     location.reload();
 });
-
