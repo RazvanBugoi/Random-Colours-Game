@@ -7,4 +7,4 @@ If you choose the right box, you will get a positive head shake like annimation 
 
 Click **[here](https://razvanbugoi.github.io/Random-Colours-Game/src/index.html)** to play.
 
-![demonstration.gif](src/demonstration.gif);
+![demonstration.gif](src/demonstration.gif)
