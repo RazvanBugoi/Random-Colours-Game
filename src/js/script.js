@@ -1,36 +1,36 @@
 let colourCode = document.getElementById('colour-code');
+let boxes = document.getElementById('allBoxes').getElementsByClassName('box');
+let message = document.getElementById('message');
+let btn = document.getElementById('reset');
+let buttons = document.querySelectorAll('button');
+let winnerNumber;
+let colours = [];
 
-
-let boxes = document.getElementsByClassName('allBoxes');
-let winnerBtn;
-
-for (let i = 0; i < boxes[0].childElementCount; i += 1) {
-    console.log(boxes[0].children[i]);
-    boxes[0].children[i].style.background = `rgb(${getColourCode()},${getColourCode()},${getColourCode()})`;
-    boxes[0].children[i].addEventListener('click', function (event) {
-        if (this.style.background == winnerBtn.style.background) {
-            alert('you won!');
+for (let i = 0; i < boxes.length; i += 1) {
+    boxes[i].style.background = `rgb(${getColourCode()},${getColourCode()},${getColourCode()})`;
+    boxes[i].addEventListener('click', function(event) {
+        if (this.style.background == winnerNumber.style.background) {
+            message.innerHTML = 'You won. Congratulations!';
+            this.classList.add('animate__animated', 'animate__shakeY');
+            buttons.forEach((el) => el.setAttribute('disabled', ''));
+            buttons[6].removeAttribute('disabled');
         } else {
-            alert('Wrong box :( Try again.')
+            message.innerHTML = 'You lost. Try again';
+            this.classList.add('animate__animated', 'animate__shakeX');
+            buttons.forEach((el) => el.setAttribute('disabled', ''));
+            buttons[6].removeAttribute('disabled');
         }
     })
 }
 
-
 function winnerBox() {
-    let winnerNum = Math.round(Math.random() * 6);
-    if (winnerNum == 0) { winnerNum = 1 };
-    const winnerNumber = document.getElementById(`box${winnerNum}`);
-    console.log(winnerNumber);
-    winnerBtn = winnerNumber;
+    let winnerNum = Math.round(Math.random() * 5);
+    winnerNumber = boxes[winnerNum];
 }
 
 winnerBox()
 
-colourCode.innerHTML = winnerBtn.style.background;
-
-
-let colours = [];
+colourCode.innerHTML = winnerNumber.style.background;
 
 for (let i = 0; i <= 255; i += 1) {
     colours.push(i);
@@ -40,5 +40,6 @@ function getColourCode() {
     return Math.floor(Math.random() * 255);
 }
 
-
-
+reset.addEventListener('click', function(event) {
+    location.reload();
+});
